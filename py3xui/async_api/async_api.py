@@ -10,6 +10,7 @@ from py3xui.async_api import (
     AsyncClientApi,
     AsyncDatabaseApi,
     AsyncInboundApi,
+    AsyncNodeApi,
     AsyncServerApi,
     AsyncSettingApi,
     AsyncXrayApi,
@@ -44,6 +45,7 @@ class AsyncApi:
         database (AsyncDatabaseApi): The database API.
         setting (AsyncSettingApi): The panel settings API.
         xray (AsyncXrayApi): The Xray settings API.
+        node (AsyncNodeApi): The node API.
         session (str): The session cookie for the XUI API.
         cookie_name (str): The cookie name for the XUI API.
 
@@ -141,6 +143,15 @@ class AsyncApi:
             logger,
             token=token,
         )
+        self.node = AsyncNodeApi(
+            host,
+            username,
+            password,
+            use_tls_verify,
+            custom_certificate_path,
+            logger,
+            token=token,
+        )
         self._csrf_token: str | None = None
         self._session: str | None = None
         self._cookie_name: str | None = None
@@ -167,6 +178,7 @@ class AsyncApi:
         self.server.csrf_token = value
         self.setting.csrf_token = value
         self.xray.csrf_token = value
+        self.node.csrf_token = value
 
     @property
     def session(self) -> str | None:
@@ -191,6 +203,7 @@ class AsyncApi:
         self.server.session = value
         self.setting.session = value
         self.xray.session = value
+        self.node.session = value
 
     @property
     def cookie_name(self) -> str | None:
@@ -217,6 +230,7 @@ class AsyncApi:
         self.server.cookie_name = value
         self.setting.cookie_name = value
         self.xray.cookie_name = value
+        self.node.cookie_name = value
 
     @classmethod
     def from_env(

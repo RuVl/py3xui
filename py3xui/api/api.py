@@ -6,7 +6,7 @@ from __future__ import annotations
 import logging
 from typing import Any
 
-from py3xui.api import ClientApi, DatabaseApi, InboundApi, ServerApi, SettingApi, XrayApi
+from py3xui.api import ClientApi, DatabaseApi, InboundApi, ServerApi, SettingApi, XrayApi, NodeApi
 from py3xui.utils import env
 
 
@@ -39,6 +39,7 @@ class Api:
         database (DatabaseApi): The database API.
         setting (SettingApi): The panel settings API.
         xray (XrayApi): The Xray settings API.
+        node (NodeApi): The node API.
         session (str): The session cookie for the XUI API.
         csrf_token (str | None): The CSRF token propagated to the sub-APIs.
         cookie_name (str): The cookie name for the XUI API.
@@ -136,6 +137,15 @@ class Api:
             logger,
             token=token,
         )
+        self.node = NodeApi(
+            host,
+            username,
+            password,
+            use_tls_verify,
+            custom_certificate_path,
+            logger,
+            token=token,
+        )
 
         self._csrf_token: str | None = None
         self._session: str | None = None
@@ -162,6 +172,7 @@ class Api:
         self.server.csrf_token = value
         self.setting.csrf_token = value
         self.xray.csrf_token = value
+        self.node.csrf_token = value
 
     @property
     def session(self) -> str | None:
@@ -186,6 +197,7 @@ class Api:
         self.server.session = value
         self.setting.session = value
         self.xray.session = value
+        self.node.session = value
 
     @property
     def cookie_name(self) -> str | None:
@@ -212,6 +224,7 @@ class Api:
         self.server.cookie_name = value
         self.setting.cookie_name = value
         self.xray.cookie_name = value
+        self.node.cookie_name = value
 
     @classmethod
     def from_env(

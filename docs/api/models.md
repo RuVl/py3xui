@@ -64,3 +64,11 @@ Models of `api.xray`, exported from `py3xui`:
 - `OutboundTestResult`, `OutboundTestEndpoint`, `OutboundTestEgress`, `BalancerStatus`, `RouteTestResult`
 - `GeoFile`, `GeoCategory`, `GeoCategoryPage`, `GeoEntry`, `GeoEntryPage`, `GeodataTokenIssue`
 - `OutboundSub` (keeps unknown fields, is sent back to the panel)
+## Nodes API (3x-ui v3.11.0)
+
+- `Node`: a remote panel, used for reads and writes. Unknown fields are kept and sent back on update. `api_token` is write-only: `None` keeps the stored token, `clear_api_token=True` removes it. A `null` `inboundTags` from the panel is parsed as an empty list.
+- `NodeProbeResult`: result of `test()` and `probe()`. An unreachable node has the `offline` status and the reason in `error`, it does not raise.
+- `NodeUpdateResult`: per-node result of `update_panel()`.
+- `NodeRemoteInbound`: an inbound returned by `get_remote_inbounds()`.
+- `NodeWebCertFiles`: result of `get_web_cert_files()`.
+- `NodeHistoryPoint`: a point of `get_history()`.

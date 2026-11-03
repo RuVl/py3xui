@@ -2,6 +2,7 @@
 from py3xui.api.api_client import ClientApi
 from py3xui.api.api_database import DatabaseApi
 from py3xui.api.api_inbound import InboundApi
+from py3xui.api.api_node import NodeApi
 from py3xui.api.api_server import ServerApi
 from py3xui.api.api_setting import SettingApi
 from py3xui.api.api_xray import XrayApi
