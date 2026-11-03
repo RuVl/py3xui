@@ -172,7 +172,7 @@ class AsyncInboundApi(AsyncBaseApi):
 
         url = self._url(endpoint)
         data = inbound.to_json()
-        self.logger.info("Adding inbound: %s", inbound)
+        self.logger.info("Adding inbound: %s", inbound.remark)
 
         await self._post(url, headers, data)
         self.logger.info("Inbound added successfully.")
@@ -236,7 +236,7 @@ class AsyncInboundApi(AsyncBaseApi):
 
         url = self._url(endpoint)
         data = inbound.to_json()
-        self.logger.info("Updating inbound: %s", inbound)
+        self.logger.info("Updating inbound: %s", inbound_id)
 
         await self._post(url, headers, data)
         self.logger.info("Inbound updated successfully.")
