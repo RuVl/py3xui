@@ -314,3 +314,13 @@ api.sub_balancer.update(created.id, created)
 
 api.sub_balancer.delete(created.id)
 ```
+## Timeouts and Retries
+
+```python
+api = Api("http://your-host:2053", token="token", timeout=15)
+api.max_retries = 1
+```
+
+`timeout` is in seconds and applies to every request. Without it the default of the HTTP library is
+used. `max_retries` is the number of attempts on connection errors, 3 by default. Retried requests
+include POST.
