@@ -17,6 +17,9 @@ UUID in `uuid` while `id` holds the record ID.
 
 `ClientDetails` is the full `clients/get/{email}` payload: `client`, `inbound_ids`,
 `external_links`, `used_traffic` and `tunnel_allowed_ips`.
+`Inbound`, `Settings`, `Sniffing` and `StreamSettings` keep fields they do not declare and send them
+back on `add` and `update`, because the panel replaces these values on update. Protocol settings such
+as the Shadowsocks `method` or the WireGuard `peers` are available as attributes of `settings`.
 
 When the upstream panel response shape changes, py3xui adapts parsing logic while preserving stable public methods where possible.
 
