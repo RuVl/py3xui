@@ -7,3 +7,4 @@ from py3xui.async_api.async_api_node import AsyncNodeApi
 from py3xui.async_api.async_api_server import AsyncServerApi
 from py3xui.async_api.async_api_setting import AsyncSettingApi
 from py3xui.async_api.async_api_xray import AsyncXrayApi
+from py3xui.async_api.async_api_sub_balancer import AsyncSubBalancerApi

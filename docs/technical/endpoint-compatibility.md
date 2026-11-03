@@ -148,3 +148,11 @@ All 16 `panel/api/nodes/*` routes are covered by `api.node` in both clients. All
 | `POST panel/api/hosts/bulk/add` | `api.host.bulk_add(host)` |
 | `POST panel/api/hosts/bulk/setEnable` | `api.host.bulk_set_enable(group_ids, enable)` |
 | `POST panel/api/hosts/bulk/del` | `api.host.bulk_delete(group_ids)` |
+## Sub Balancers API (3x-ui v3.11.0)
+
+- `GET panel/api/sub-balancers`
+- `POST panel/api/sub-balancers`
+- `POST panel/api/sub-balancers/{id}`
+- `POST panel/api/sub-balancers/{id}/del`
+
+Create and update read form fields only: `inboundIds` as repeated keys and `memberWeights` as one JSON object. JSON bodies lose `inboundIds` and are rejected. `DELETE panel/api/sub-balancers/{id}` has the same handler as the POST alias, and py3xui uses the alias.

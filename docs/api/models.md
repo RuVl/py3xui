@@ -78,3 +78,8 @@ Models of `api.xray`, exported from `py3xui`:
 - `Host`: a single stored row (one per address and inbound) with its numeric `id`, `inbound_id` and `address`. Returned by `get_raw_list`, `add`, `update` and `bulk_add`.
 
 Lists that the panel returns as `null` are parsed as empty lists. Both models keep unknown fields, so they survive a fetch and update round trip.
+## Sub Balancers API (3x-ui v3.11.0)
+
+`SubBalancer` is a client-side balancer of the JSON subscription. Fields: `id`, `remark`, `strategy`, `inbound_ids`, `member_weights`, `sort_order`, `enabled`, `created_at`, `updated_at`. `remark` and `inbound_ids` are required. Unknown fields returned by the panel are kept on the model.
+
+`SubBalancer.to_form()` returns the form fields sent to the panel.

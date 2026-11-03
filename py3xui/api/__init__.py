@@ -7,3 +7,4 @@ from py3xui.api.api_node import NodeApi
 from py3xui.api.api_server import ServerApi
 from py3xui.api.api_setting import SettingApi
 from py3xui.api.api_xray import XrayApi
+from py3xui.api.api_sub_balancer import SubBalancerApi

@@ -15,6 +15,7 @@ from py3xui.async_api import (
     AsyncServerApi,
     AsyncSettingApi,
     AsyncXrayApi,
+    AsyncSubBalancerApi,
 )
 from py3xui.utils import env
 
@@ -48,6 +49,7 @@ class AsyncApi:
         xray (AsyncXrayApi): The Xray settings API.
         node (AsyncNodeApi): The node API.
         host (AsyncHostApi): The subscription hosts API.
+        sub_balancer (AsyncSubBalancerApi): The subscription balancer API.
         session (str): The session cookie for the XUI API.
         cookie_name (str): The cookie name for the XUI API.
 
@@ -163,6 +165,15 @@ class AsyncApi:
             logger,
             token=token,
         )
+        self.sub_balancer = AsyncSubBalancerApi(
+            host,
+            username,
+            password,
+            use_tls_verify,
+            custom_certificate_path,
+            logger,
+            token=token,
+        )
 
         self._csrf_token: str | None = None
         self._session: str | None = None
@@ -192,6 +203,7 @@ class AsyncApi:
         self.xray.csrf_token = value
         self.node.csrf_token = value
         self.host.csrf_token = value
+        self.sub_balancer.csrf_token = value
 
     @property
     def session(self) -> str | None:
@@ -218,6 +230,7 @@ class AsyncApi:
         self.xray.session = value
         self.node.session = value
         self.host.session = value
+        self.sub_balancer.session = value
 
     @property
     def cookie_name(self) -> str | None:
@@ -246,6 +259,7 @@ class AsyncApi:
         self.xray.cookie_name = value
         self.node.cookie_name = value
         self.host.cookie_name = value
+        self.sub_balancer.cookie_name = value
 
     @classmethod
     def from_env(
