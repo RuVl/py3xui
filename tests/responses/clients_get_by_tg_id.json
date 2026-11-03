@@ -6,7 +6,7 @@
       "client": {
         "id": 42,
         "email": "alice+wg@example.com",
-        "subId": "k2v9xq7m1p4r8s3t",
+        "subId": "fake-sub-id",
         "uuid": "6f0f4c4e-7d4c-4b9e-9a51-2c1f4e8d7a10",
         "password": "",
         "auth": "",
@@ -19,10 +19,10 @@
           1,
           2
         ],
-        "privateKey": "aGVsbG8tcHJpdmF0ZS1rZXktZm9yLXRlc3RzLW9ubHk=",
-        "publicKey": "aGVsbG8tcHVibGljLWtleS1mb3ItdGVzdHMtb25seQ==",
+        "privateKey": "fake-private-key",
+        "publicKey": "fake-public-key",
         "allowedIPs": "10.66.0.2/32, fd00:66::2/128",
-        "preSharedKey": "aGVsbG8tcHJlLXNoYXJlZC1rZXktZm9yLXRlc3Rz",
+        "preSharedKey": "fake-pre-shared-key",
         "keepAlive": 25,
         "forwardedPorts": "8080",
         "secret": "",

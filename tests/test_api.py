@@ -413,7 +413,7 @@ def test_get_client_details():
         assert client.email == DETAILS_EMAIL
         assert client.uuid == "6f0f4c4e-7d4c-4b9e-9a51-2c1f4e8d7a10"
         assert client.group == "staff"
-        assert client.private_key.startswith("aGVsbG8tcHJpdmF0ZS")
+        assert client.private_key.startswith("fake-private")
         assert client.allowed_ips == ["10.66.0.2/32", "fd00:66::2/128"]
         assert client.keep_alive == 25
         assert client.reverse == {"tag": "reverse-out"}

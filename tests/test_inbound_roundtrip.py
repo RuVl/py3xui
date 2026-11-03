@@ -16,13 +16,13 @@ RESPONSE_OK = {ApiFields.SUCCESS: True, ApiFields.MSG: "", ApiFields.OBJ: None}
 
 WIREGUARD_SETTINGS = {
     "mtu": 1420,
-    "secretKey": "c2VjcmV0LWtleS1mb3ItdGVzdHMtb25seQ==",
-    "peers": [{"publicKey": "cHVibGljLWtleS1mb3ItdGVzdHM=", "allowedIPs": ["10.0.0.2/32"]}],
+    "secretKey": "fake-secret-key",
+    "peers": [{"publicKey": "fake-peer-public-key", "allowedIPs": ["10.0.0.2/32"]}],
     "clients": [{"email": "wg@example.com", "enable": True, "id": "6f0f4c4e"}],
 }
 SHADOWSOCKS_SETTINGS = {
     "method": "2022-blake3-aes-256-gcm",
-    "password": "c2VydmVyLXBhc3N3b3JkLWZvci10ZXN0cw==",
+    "password": "fake-server-password",
     "network": "tcp,udp",
     "clients": [],
 }

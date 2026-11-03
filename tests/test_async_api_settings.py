@@ -12,6 +12,8 @@ HOST = "http://localhost"
 TOKEN = "test-api-token"
 SUCCESS = {ApiFields.SUCCESS: True, ApiFields.MSG: "", ApiFields.OBJ: None}
 FAILURE = {ApiFields.SUCCESS: False, ApiFields.MSG: "failed", ApiFields.OBJ: None}
+OLD_VALUE = "old-value"
+NEW_VALUE = "new-value"
 
 
 def _fixture(name):
@@ -157,13 +159,13 @@ async def test_update_user(httpx_mock: HTTPXMock):
     httpx_mock.add_response(
         method="POST", url=f"{HOST}/panel/api/setting/updateUser", json=SUCCESS
     )
-    await _api().setting.update_user("admin", "old-pass", "newadmin", "new-pass")
+    await _api().setting.update_user("admin", OLD_VALUE, "newadmin", NEW_VALUE)
 
     assert _body(httpx_mock) == {
         "oldUsername": "admin",
-        "oldPassword": "old-pass",
+        "oldPassword": OLD_VALUE,
         "newUsername": "newadmin",
-        "newPassword": "new-pass",
+        "newPassword": NEW_VALUE,
     }
 
 
@@ -173,7 +175,7 @@ async def test_update_user_two_factor_code(httpx_mock: HTTPXMock):
         method="POST", url=f"{HOST}/panel/api/setting/updateUser", json=SUCCESS
     )
     await _api().setting.update_user(
-        "admin", "old-pass", "newadmin", "new-pass", 123456
+        "admin", OLD_VALUE, "newadmin", NEW_VALUE, 123456
     )
 
     assert _body(httpx_mock)["twoFactorCode"] == "123456"

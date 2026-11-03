@@ -32,7 +32,7 @@ SESSION = "abc123"
 
 EMAIL = "alice+wg@example.com"
 EMAIL_QUOTED = "alice%2Bwg%40example.com"
-SUB_ID = "k2v9xq7m1p4r8s3t"
+SUB_ID = "fake-sub-id"
 OK_RESPONSE = {ApiFields.SUCCESS: True, ApiFields.MSG: "", ApiFields.OBJ: None}
 
 

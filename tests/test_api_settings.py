@@ -12,6 +12,8 @@ HOST = "http://localhost"
 TOKEN = "test-api-token"
 SUCCESS = {ApiFields.SUCCESS: True, ApiFields.MSG: "", ApiFields.OBJ: None}
 FAILURE = {ApiFields.SUCCESS: False, ApiFields.MSG: "failed", ApiFields.OBJ: None}
+OLD_VALUE = "old-value"
+NEW_VALUE = "new-value"
 
 
 def _fixture(name):
@@ -143,21 +145,21 @@ def test_validate_regex_invalid_raises():
 def test_update_user():
     with requests_mock.Mocker() as m:
         m.post(f"{HOST}/panel/api/setting/updateUser", json=SUCCESS)
-        _api().setting.update_user("admin", "old-pass", "newadmin", "new-pass")
+        _api().setting.update_user("admin", OLD_VALUE, "newadmin", NEW_VALUE)
 
     assert m.last_request.method == "POST"
     assert m.last_request.json() == {
         "oldUsername": "admin",
-        "oldPassword": "old-pass",
+        "oldPassword": OLD_VALUE,
         "newUsername": "newadmin",
-        "newPassword": "new-pass",
+        "newPassword": NEW_VALUE,
     }
 
 
 def test_update_user_two_factor_code():
     with requests_mock.Mocker() as m:
         m.post(f"{HOST}/panel/api/setting/updateUser", json=SUCCESS)
-        _api().setting.update_user("admin", "old-pass", "newadmin", "new-pass", 123456)
+        _api().setting.update_user("admin", OLD_VALUE, "newadmin", NEW_VALUE, 123456)
 
     assert m.last_request.json()["twoFactorCode"] == "123456"
 
