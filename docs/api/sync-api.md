@@ -278,4 +278,18 @@ Available as `api.node`. Method signatures are the same in the sync and async cl
 node = api.node.get_by_id(1)
 node.remark = "Primary edge"
 api.node.update(node.id, node)
+## Hosts API (3x-ui v3.11.0)
+
+Available as `api.host`:
+
+- `get_list()`, `get_raw_list()`, `get_by_id(group_id)`, `get_by_inbound(inbound_id)`, `get_tags()`
+- `add(host)`, `update(group_id, host)`, `delete(group_id)`, `set_enable(group_id, enable)`, `reorder(group_ids)`
+- `bulk_add(host)`, `bulk_set_enable(group_ids, enable)`, `bulk_delete(group_ids)`
+
+`update` replaces the group, so fetch it first and change only what is needed:
+
+```python
+group = api.host.get_by_id("1234567890123456")
+group.remark = "cdn-back"
+api.host.update(group.group_id, group)
 ```

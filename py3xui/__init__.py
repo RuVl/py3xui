@@ -30,6 +30,7 @@ from py3xui.inbound import (
     InboundFallback,
     InboundOption,
 )
+from py3xui.host.host import Host, HostGroup
 from py3xui.inbound.inbound import Inbound
 from py3xui.node.node import (
     Node,

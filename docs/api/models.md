@@ -72,3 +72,9 @@ Models of `api.xray`, exported from `py3xui`:
 - `NodeRemoteInbound`: an inbound returned by `get_remote_inbounds()`.
 - `NodeWebCertFiles`: result of `get_web_cert_files()`.
 - `NodeHistoryPoint`: a point of `get_history()`.
+## Hosts API (3x-ui v3.11.0)
+
+- `HostGroup`: the settings of a group plus its `inbound_ids` and `hosts`. Used by `add`, `update` and the read methods of `api.host`.
+- `Host`: a single stored row (one per address and inbound) with its numeric `id`, `inbound_id` and `address`. Returned by `get_raw_list`, `add`, `update` and `bulk_add`.
+
+Lists that the panel returns as `null` are parsed as empty lists. Both models keep unknown fields, so they survive a fetch and update round trip.

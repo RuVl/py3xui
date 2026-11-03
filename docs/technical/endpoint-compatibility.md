@@ -131,3 +131,20 @@ All 16 `panel/api/nodes/*` routes are covered by `api.node` in both clients. All
 - `update` sends the whole node, because the panel replaces it. An omitted `apiToken` keeps the stored token.
 - `add`, `update`, `test`, `certFingerprint` and `inbounds` share one request contract: `name`, `address` and `port` are required by the panel on all of them.
 - `get_history` accepts the metrics `cpu`, `mem`, `netUp`, `netDown` and the buckets 2, 30, 60, 180, 360, 720, 1440, 2880, 10080, as validated by the panel. The OpenAPI description of this route lists fewer metrics and different buckets.
+## Hosts API (3x-ui v3.11.0)
+
+| Endpoint | Method |
+|---|---|
+| `GET panel/api/hosts/list` | `api.host.get_list()` |
+| `GET panel/api/hosts/raw` | `api.host.get_raw_list()` |
+| `GET panel/api/hosts/get/{groupId}` | `api.host.get_by_id(group_id)` |
+| `GET panel/api/hosts/byInbound/{inboundId}` | `api.host.get_by_inbound(inbound_id)` |
+| `GET panel/api/hosts/tags` | `api.host.get_tags()` |
+| `POST panel/api/hosts/add` | `api.host.add(host)` |
+| `POST panel/api/hosts/update/{groupId}` | `api.host.update(group_id, host)` |
+| `POST panel/api/hosts/del/{groupId}` | `api.host.delete(group_id)` |
+| `POST panel/api/hosts/setEnable/{groupId}` | `api.host.set_enable(group_id, enable)` |
+| `POST panel/api/hosts/reorder` | `api.host.reorder(group_ids)` |
+| `POST panel/api/hosts/bulk/add` | `api.host.bulk_add(host)` |
+| `POST panel/api/hosts/bulk/setEnable` | `api.host.bulk_set_enable(group_ids, enable)` |
+| `POST panel/api/hosts/bulk/del` | `api.host.bulk_delete(group_ids)` |
