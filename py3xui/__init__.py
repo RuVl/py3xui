@@ -22,6 +22,13 @@ from py3xui.client.client_info import (
     ClientsSummary,
     ClientSlim,
     ClientTraffic,
+from py3xui.client.client import Client
+from py3xui.inbound import (
+    AmneziaWGReadiness,
+    InboundBulkDeleteResult,
+    InboundClientsDeleteResult,
+    InboundFallback,
+    InboundOption,
 )
 from py3xui.inbound.inbound import Inbound
 from py3xui.server.server import RealityKeyPair, Server

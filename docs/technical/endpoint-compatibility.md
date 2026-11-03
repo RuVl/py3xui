@@ -52,3 +52,18 @@ Compatibility behavior is implemented in both sync and async clients.
 - `POST panel/api/clients/clientIpsByGuid`: `get_ips_by_guid`
 - `POST panel/api/clients/activeInbounds`: `get_active_inbounds`
 - `POST panel/api/clients/lastOnline`: `get_last_online`
+## Inbounds API (3x-ui v3.11.0)
+
+- `GET panel/api/inbounds/list/slim`
+- `GET panel/api/inbounds/options`
+- `GET panel/api/inbounds/amneziawgKernelReadiness`
+- `GET panel/api/inbounds/allLinks`
+- `POST panel/api/inbounds/bulkDel`
+- `POST panel/api/inbounds/setEnable/{id}`
+- `POST panel/api/inbounds/{id}/subSortIndex`
+- `POST panel/api/inbounds/{id}/resetTraffic`
+- `POST panel/api/inbounds/{id}/delAllClients`
+- `POST panel/api/inbounds/import` (form field `data` with the inbound JSON)
+- `POST panel/api/inbounds/pushClientTraffics`
+- `GET panel/api/inbounds/{id}/fallbacks`
+- `POST panel/api/inbounds/{id}/fallbacks`
