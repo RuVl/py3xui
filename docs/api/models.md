@@ -41,3 +41,12 @@ When the upstream panel response shape changes, py3xui adapts parsing logic whil
 - `AmneziaWGReadiness`, `AmneziaWGBlocker`: host readiness for kernel-mode AmneziaWG.
 - `InboundBulkDeleteResult`, `InboundBulkDeleteReport`: result of `bulk_delete()`.
 - `InboundClientsDeleteResult`, `InboundClientsDeleteReport`: result of `delete_all_clients()`.
+## Server API (3x-ui v3.11.0)
+
+Models in `py3xui.server`:
+
+- `Fail2banStatus`, `HistoryPoint`, `CpuHistoryPoint`, `XrayMetricsState`, `ObservatorySnapshot`
+- `PanelUpdateInfo`, `PanelUpdateStatus`
+- `Mldsa65KeyPair`, `Mlkem768KeyPair`, `VlessEncryptionAuth`, `EchCert`, `WebCertFiles`, `RealityScanResult`
+- `XrayLogEntry`, `AmneziaWGLogs`, `AmneziaWGPeer`
+- `NodeSummary`, `InboundClientIps`, `InboundClientIpEntry`
