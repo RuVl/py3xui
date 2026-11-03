@@ -22,7 +22,7 @@ from py3xui.client.client_info import (
     ClientsSummary,
     ClientSlim,
     ClientTraffic,
-from py3xui.client.client import Client
+)
 from py3xui.inbound import (
     AmneziaWGReadiness,
     InboundBulkDeleteResult,
