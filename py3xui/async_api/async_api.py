@@ -12,6 +12,7 @@ from py3xui.async_api import (
     AsyncInboundApi,
     AsyncServerApi,
     AsyncSettingApi,
+    AsyncXrayApi,
 )
 from py3xui.utils import env
 
@@ -42,6 +43,7 @@ class AsyncApi:
         inbound (AsyncInboundApi): The inbound API.
         database (AsyncDatabaseApi): The database API.
         setting (AsyncSettingApi): The panel settings API.
+        xray (AsyncXrayApi): The Xray settings API.
         session (str): The session cookie for the XUI API.
         cookie_name (str): The cookie name for the XUI API.
 
@@ -130,6 +132,15 @@ class AsyncApi:
             logger,
             token=token,
         )
+        self.xray = AsyncXrayApi(
+            host,
+            username,
+            password,
+            use_tls_verify,
+            custom_certificate_path,
+            logger,
+            token=token,
+        )
         self._csrf_token: str | None = None
         self._session: str | None = None
         self._cookie_name: str | None = None
@@ -155,6 +166,7 @@ class AsyncApi:
         self.database.csrf_token = value
         self.server.csrf_token = value
         self.setting.csrf_token = value
+        self.xray.csrf_token = value
 
     @property
     def session(self) -> str | None:
@@ -178,6 +190,7 @@ class AsyncApi:
         self.database.session = value
         self.server.session = value
         self.setting.session = value
+        self.xray.session = value
 
     @property
     def cookie_name(self) -> str | None:
@@ -203,6 +216,7 @@ class AsyncApi:
         self.database.cookie_name = value
         self.server.cookie_name = value
         self.setting.cookie_name = value
+        self.xray.cookie_name = value
 
     @classmethod
     def from_env(

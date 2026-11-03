@@ -55,3 +55,12 @@ Models in `py3xui.server`:
 - `AllSetting`: every panel setting, returned by `api.setting.get_all()` and accepted by `api.setting.update()`. Unknown keys are kept and sent back. The `has_*` flags are read-only and left out of `model_dump()`.
 - `TgBotCapabilities`: what the Telegram bot can do, returned by `api.setting.get_tg_bot_capabilities()`.
 - `ApiToken`: an API token, returned by `api.setting.get_api_tokens()` and `api.setting.add_api_token()`. `token` is filled only by `add_api_token()`. `created_at` is in Unix seconds and `expires_at` in Unix milliseconds.
+## Xray API (3x-ui v3.11.0)
+
+Models of `api.xray`, exported from `py3xui`:
+
+- `XraySettings`, `GeodataSource`, `OutboundTraffic`
+- `PiaAccount`, `PiaCountry`, `PiaRegion`, `PiaServer`, `PiaServers`, `PiaKey`
+- `OutboundTestResult`, `OutboundTestEndpoint`, `OutboundTestEgress`, `BalancerStatus`, `RouteTestResult`
+- `GeoFile`, `GeoCategory`, `GeoCategoryPage`, `GeoEntry`, `GeoEntryPage`, `GeodataTokenIssue`
+- `OutboundSub` (keeps unknown fields, is sent back to the panel)

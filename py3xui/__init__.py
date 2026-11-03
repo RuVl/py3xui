@@ -53,3 +53,26 @@ from py3xui.server.client_ips import InboundClientIpEntry, InboundClientIps
 from py3xui.server.node_summary import NodeSummary
 from py3xui.setting.setting import AllSetting, TgBotCapabilities
 from py3xui.setting.api_token import ApiToken
+from py3xui.xray import (
+    BalancerStatus,
+    GeoCategory,
+    GeoCategoryPage,
+    GeodataSource,
+    GeodataTokenIssue,
+    GeoEntry,
+    GeoEntryPage,
+    GeoFile,
+    OutboundSub,
+    OutboundTestEgress,
+    OutboundTestEndpoint,
+    OutboundTestResult,
+    OutboundTraffic,
+    PiaAccount,
+    PiaCountry,
+    PiaKey,
+    PiaRegion,
+    PiaServer,
+    PiaServers,
+    RouteTestResult,
+    XraySettings,
+)
