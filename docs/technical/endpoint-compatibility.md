@@ -103,3 +103,13 @@ Endpoints used by `api.server`:
 - `GET panel/api/server/descendants`
 - `GET panel/api/server/clientIps`
 - `POST panel/api/server/clientIps`
+## Settings API (3x-ui v3.11.0)
+
+Sync and async `api.setting` use JSON bodies on these routes:
+
+- `POST panel/api/setting/all`, `defaultSettings`, `factoryDefaults`, `update`, `validateRegex`, `updateUser`, `restartPanel`
+- `POST panel/api/setting/testSmtp`, `testTgBot`, `tgBotCapabilities`, `testDiscord`
+- `GET panel/api/setting/getDefaultJsonConfig`, `apiTokens`
+- `POST panel/api/setting/apiTokens/create`, `apiTokens/delete/{id}`, `apiTokens/setEnabled/{id}`
+
+`testSmtp` adds a `stage` field to the response, so `test_smtp()` returns it instead of raising on failure.

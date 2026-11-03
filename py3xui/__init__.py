@@ -51,3 +51,5 @@ from py3xui.server.reality_scan import RealityScanResult
 from py3xui.server.logs import AmneziaWGLogs, AmneziaWGPeer, XrayLogEntry
 from py3xui.server.client_ips import InboundClientIpEntry, InboundClientIps
 from py3xui.server.node_summary import NodeSummary
+from py3xui.setting.setting import AllSetting, TgBotCapabilities
+from py3xui.setting.api_token import ApiToken
